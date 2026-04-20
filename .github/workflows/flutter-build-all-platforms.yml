@@ -35,7 +35,10 @@ jobs:
           flutter-version: 'any'
 
       - name: Install dependencies
-        run: flutter pub get
+        run: |
+          flutter pub get
+          # 如果报错，尝试对所有 packages 运行
+          # flutter packages get --recursive
 
       # ========== 核心修正：使用 Perl 跨平台替换版本号 ==========
       - name: Sync Tag Version to Project
